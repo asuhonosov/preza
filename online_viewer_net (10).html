@@ -10,10 +10,17 @@
       padding: 0;
     }
 
+    :root {
+      --accent: #e30613;
+      --accent-dark: #b5121b;
+      --bg: #f8f6f7;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
     body {
-      background: #f5f5f5;
+      background: var(--bg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: #000;
+      color: #1f1f1f;
     }
 
     .deck {
@@ -26,21 +33,23 @@
       height: 720px;
       margin: 20px auto;
       background: #fff;
-      border: 2px solid #000;
+      border: 2px solid var(--accent);
       padding: 32px 44px;
       position: relative;
       page-break-after: always;
+      box-shadow: var(--shadow);
     }
 
     .slide-header {
       margin-bottom: 20px;
     }
 
-    .slide-title {
-      font-size: 30px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
+      .slide-title {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: var(--accent-dark);
+      }
 
     .slide-subtitle {
       font-size: 16px;
@@ -74,17 +83,22 @@
       flex: 1;
     }
 
-    .box {
-      border: 1px solid #000;
-      padding: 10px 12px;
-    }
+      .box {
+        border: 1px solid #c9c9c9;
+        padding: 10px 12px;
+        background: #fff;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--accent);
+      }
 
-    .box-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-    }
+      .box-title {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        letter-spacing: 0.02em;
+      }
 
     .box-body {
       font-size: 13px;
@@ -119,127 +133,157 @@
       font-size: 11px;
     }
 
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 6px;
-      font-size: 13px;
-    }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 6px;
+        font-size: 13px;
+      }
 
-    .table th,
-    .table td {
-      border: 1px solid #000;
-      padding: 4px 6px;
-      vertical-align: top;
-    }
+      .table th,
+      .table td {
+        border: 1px solid #bcbcbc;
+        padding: 4px 6px;
+        vertical-align: top;
+      }
 
-    .table th {
-      font-weight: 600;
-    }
+      .table th {
+        font-weight: 700;
+        background: #fde9ec;
+      }
 
-    .section-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
-    }
+      .section-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 4px;
+        color: var(--accent-dark);
+      }
 
     .spacer-vert {
       height: 10px;
     }
 
-    .diagram-placeholder {
-      border: 1px dashed #000;
-      padding: 10px;
-      font-size: 12px;
-      text-align: center;
-      margin-top: 8px;
-    }
+      .diagram-placeholder {
+        border: 1px dashed var(--accent-dark);
+        padding: 10px;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 8px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
 
-    /* Таймлайн для слайда 3 (упрощённый, без верх/низ) */
-    .timeline {
-      display: flex;
-      justify-content: space-between;
-      margin: 6px 0 16px;
-      padding: 12px 8px 0;
+      /* Таймлайн для слайда 3 */
+      .timeline {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 6px 0 16px;
+        padding: 4px 16px 56px;
+        position: relative;
+        min-height: 180px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 112px;
+        left: 24px;
+        right: 24px;
+        border-top: 2px solid var(--accent);
+      }
+
+      .timeline-item {
+        position: relative;
+        width: 18%;
+        text-align: center;
+        padding-top: 4px;
+      }
+
+      .timeline-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--accent-dark);
+        background: #fff;
+        position: absolute;
+        top: 102px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: var(--shadow);
+      }
+
+      .timeline-date {
+        font-size: 11px;
+        margin-top: 14px;
+        font-weight: 700;
+        color: var(--accent-dark);
+      }
+
+      .timeline-text {
+        font-size: 12px;
+        border: 1px solid #c9c9c9;
+        padding: 6px 8px;
+        margin: 0 0 22px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+    /* Диаграмма Core AI (слайд 6) */
+    .core-stack {
       position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
     }
 
-    .timeline::before {
-      content: "";
+    .core-layer-box {
       position: absolute;
-      top: 32px;
-      left: 16px;
-      right: 16px;
-      border-top: 1px solid #000;
-    }
-
-    .timeline-item {
-      position: relative;
-      width: 18%;
+      inset: 0;
+      border: 2px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-    }
-
-    .timeline-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: 1px solid #000;
+      padding: 18px;
       background: #fff;
-      position: absolute;
-      top: 28px;
-      left: 50%;
-      transform: translateX(-50%);
+      box-shadow: var(--shadow);
     }
 
-    .timeline-date {
-      font-size: 11px;
-      margin-top: 2px;
+    .core-layer-box.middle {
+      inset: 28px;
+      border-color: #d83c44;
+      background: #fdf2f4;
     }
 
-    .timeline-text {
-      font-size: 11px;
-      border: 1px solid #000;
-      padding: 4px 5px;
-      margin-top: 16px;
+    .core-layer-box.inner {
+      inset: 58px;
+      border-color: var(--accent-dark);
+      background: #fff;
     }
 
-    /* Диаграмма "слои" для слайда 6 */
-    .layers-diagram {
-      display: flex;
-      gap: 20px;
-      margin-top: 8px;
+    .core-layer-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 6px;
+      font-size: 13px;
     }
 
-    .layers-box {
-      flex: 2;
-      border: 1px solid #000;
-      padding: 10px;
-      position: relative;
+    .core-layer-body {
       font-size: 12px;
-    }
-
-    .layers-layer {
-      border: 1px solid #000;
-      padding: 6px 8px;
-      margin: 6px 0;
-    }
-
-    .layers-layer-title {
-      font-weight: 600;
-      margin-bottom: 2px;
-      font-size: 12px;
-    }
-
-    .layers-layer-body {
-      font-size: 11px;
+      line-height: 1.4;
     }
 
     /* Маленькая диаграмма для MTS AI (слайд 7) */
     .mini-diagram {
-      border: 1px solid #000;
+      border: 1px solid #c9c9c9;
       padding: 8px 10px;
       font-size: 11px;
+      background: #fff;
+      box-shadow: var(--shadow);
     }
 
     .mini-diagram-row {
@@ -251,34 +295,72 @@
 
     .mini-diagram-box {
       flex: 1;
-      border: 1px solid #000;
+      border: 1px solid #c9c9c9;
       padding: 4px 6px;
+      background: #fff;
+      box-shadow: var(--shadow);
     }
 
-    .mini-diagram-box-title {
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
+      .mini-diagram-box-title {
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .flow-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      .flow-box {
+        border: 1px solid #c9c9c9;
+        padding: 8px 10px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: var(--shadow);
+        min-width: 180px;
+        flex: 1;
+      }
+
+      .flow-box-title {
+        font-weight: 700;
+        color: var(--accent-dark);
+        margin-bottom: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .flow-arrow {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent-dark);
+        padding: 0 4px;
+      }
 
     /* Визуал синергии (слайд 10) */
-    .venn-row {
-      display: flex;
-      gap: 16px;
-      margin-top: 10px;
-    }
+      .venn-row {
+        display: flex;
+        gap: 16px;
+        margin-top: 10px;
+      }
 
-    .venn-col {
-      flex: 1;
-      border: 1px solid #000;
-      padding: 8px 10px;
-      font-size: 12px;
-    }
+      .venn-col {
+        flex: 1;
+        border: 1px solid #c9c9c9;
+        padding: 8px 10px;
+        font-size: 12px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
 
-    .venn-col-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 13px;
-    }
+      .venn-col-title {
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-size: 13px;
+        color: var(--accent-dark);
+      }
 
   </style>
 </head>
@@ -705,51 +787,57 @@
         От бизнес-блоков и данных к платформам, агентам и кейсам
       </div>
     </div>
-    <div class="slide-body">
-      <div class="layers-diagram">
-        <div class="layers-box">
-          <div class="layers-layer">
-            <div class="layers-layer-title">Бизнес-блоки и процессы</div>
-            <div class="layers-layer-body">
-              Опер блок, Коллекшен, Розница, Риски, HR Tech, back-office.
+      <div class="slide-body">
+        <div class="columns">
+          <div class="column">
+            <div class="core-stack">
+              <div class="core-layer-box">
+                <div class="core-layer-title">AI/ML платформа</div>
+                <div class="core-layer-body">MTS AI как ядро Core AI и место для моделей, данных и MLOps.</div>
+              </div>
+              <div class="core-layer-box middle">
+                <div class="core-layer-title">Bot platform</div>
+                <div class="core-layer-body">Just AI (чат/voice) и АТС как фронт для каналов и сценариев.</div>
+              </div>
+              <div class="core-layer-box inner">
+                <div class="core-layer-title">Платформа речевой аналитики</div>
+                <div class="core-layer-body">SpeechSense через МТТ: STT/TTS, метрики качества, база данных диалогов.</div>
+              </div>
             </div>
+            <div class="note">Вложенность показывает, что бот-платформа и речевая аналитика питаются данными и мощностями Core AI.</div>
           </div>
-          <div class="layers-layer">
-            <div class="layers-layer-title">Данные и ИТ-инфраструктура Банка</div>
-            <div class="layers-layer-body">
-              CRM, биллинг, риск-системы, коллекшен-платформы, контакт-центр, хранилища данных, аналитика.
-            </div>
-          </div>
-          <div class="layers-layer">
-            <div class="layers-layer-title">Core AI и прикладные платформы</div>
-            <div class="layers-layer-body">
-              Core AI (MTS AI + Яндекс AI Studio), bot-платформы (Just AI, АТС), SpeechSense через МТТ и другие доменные решения.
-            </div>
-          </div>
-          <div class="layers-layer">
-            <div class="layers-layer-title">Кейсы и агентные решения</div>
-            <div class="layers-layer-body">
-              Co-pilot оператора, агенты взыскания, NBT-агенты, DevX-агенты, внутренние помощники и др.
+
+          <div class="column">
+            <div class="box">
+              <div class="box-title">Поток ценности</div>
+              <div class="box-body">
+                <div class="flow-row">
+                  <div class="flow-box">
+                    <div class="flow-box-title">Бизнес-блоки</div>
+                    Опер блок, Коллекшен, Розница, Риски, HR Tech.
+                  </div>
+                  <div class="flow-arrow">→</div>
+                  <div class="flow-box">
+                    <div class="flow-box-title">Данные и ИТ</div>
+                    CRM, биллинг, риск-системы, контакт-центр, хранилища.
+                  </div>
+                  <div class="flow-arrow">→</div>
+                  <div class="flow-box">
+                    <div class="flow-box-title">Core AI + платформы</div>
+                    MTS AI, бот-платформы, SpeechSense и адаптеры каналов.
+                  </div>
+                  <div class="flow-arrow">→</div>
+                  <div class="flow-box">
+                    <div class="flow-box-title">Кейсы</div>
+                    Co-pilot, агенты взыскания, NBT, DevX, внутренние помощники.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="column" style="flex:1;">
-          <div class="box">
-            <div class="box-title">Логика работы слоёв</div>
-            <div class="box-body">
-              <ul class="list-tight">
-                <li>Бизнес-блоки формируют запросы и экономические цели.</li>
-                <li>Данные и ИТ дают фактическую основу для обучения и интеграций.</li>
-                <li>Платформы превращают данные в готовые агенты и сценарии.</li>
-                <li>Кейсы и решения возвращают эффект в P&amp;L каждого блока.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
-
-    </div>
     <div class="footer">
       <span>AI-трансформация МТС Банка</span>
       <span>6</span>
@@ -761,9 +849,9 @@
     <div class="slide-header">
       <div class="section-label">Core AI</div>
       <h2 class="slide-title">MTS AI: стратегическое ядро группы</h2>
-      <div class="slide-subtitle">
-        Функциональность платформы и её место в гибридной модели
-      </div>
+        <div class="slide-subtitle">
+          Функциональность платформы и её текущее состояние
+        </div>
     </div>
     <div class="slide-body">
       <div class="columns">
@@ -786,37 +874,37 @@
         </div>
 
         <div class="column">
-          <div class="box">
-            <div class="box-title">Позиция MTS AI в гибриде</div>
-            <div class="box-body">
-              <div class="mini-diagram">
-                <div class="mini-diagram-row">
-                  <div class="mini-diagram-box">
-                    <div class="mini-diagram-box-title">2025–2026</div>
-                    <div>
-                      MTS AI активно развивается и берёт на себя часть сценариев Банка.
-                      Для LLM-агентов и голоса используется гибрид с Яндекс AI Studio и SpeechSense.
+            <div class="box">
+              <div class="box-title">Состояние и роль MTS AI</div>
+              <div class="box-body">
+                <div class="mini-diagram">
+                  <div class="mini-diagram-row">
+                    <div class="mini-diagram-box">
+                      <div class="mini-diagram-box-title">2025–2026</div>
+                      <div>
+                        MTS AI активно развивается и берёт на себя часть сценариев Банка.
+                        Для LLM-агентов и голоса временно подключаются внешние партнёры до готовности своего стека.
+                      </div>
                     </div>
-                  </div>
-                  <div class="mini-diagram-box">
-                    <div class="mini-diagram-box-title">2027+</div>
-                    <div>
+                    <div class="mini-diagram-box">
+                      <div class="mini-diagram-box-title">2027+</div>
+                      <div>
                       По мере роста функционала MTS AI часть кейсов может мигрировать
                       в групповой контур с сохранением гибкости по внешним партнёрам.
                     </div>
                   </div>
                 </div>
                 <div class="spacer-vert"></div>
-                <div class="mini-diagram-box">
-                  <div class="mini-diagram-box-title">Для МТС Банка</div>
-                  <div>
-                    Стратегический фокус на MTS AI сохраняется. Гибрид с Яндекс AI Studio —
-                    это дополнение и перестраховка на горизонте 2025–2027, а не отказ от своей платформы.
+                  <div class="mini-diagram-box">
+                    <div class="mini-diagram-box-title">Для МТС Банка</div>
+                    <div>
+                      Стратегический фокус на MTS AI сохраняется. Любые дополнительные партнёры —
+                      это временное ускорение и перестраховка на горизонте 2025–2027.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
 
@@ -899,19 +987,19 @@
           <div class="box">
             <div class="box-title">Ключевые возможности платформы</div>
             <div class="box-body">
-              <ul class="list">
-                <li>Единая enterprise-платформа: от моделей до цифровых агентов и готовых бизнес-приложений.:contentReference[oaicite:0]{index=0}</li>
-                <li>Agent Atelier — среда разработки текстовых и голосовых агентов, поддержка Workflows,
-                    MCP Hub и Agent Tools для интеграций с системами Банка.:contentReference[oaicite:1]{index=1}</li>
-                <li>AI Search / RAG-контур: загрузка и индексирование документов, гибридный поиск,
-                    парсеры сложных форматов.:contentReference[oaicite:2]{index=2}</li>
-                <li>SpeechKit: STT/TTS, Brand Voice и Realtime API для голосовых агентов с низкой задержкой.:contentReference[oaicite:3]{index=3}</li>
-                <li>Model Gallery: парк российских и OSS-моделей (YandexGPT 5.x, Qwen, Gemma и др.),
-                    дообучение через Tuning API (LoRA).:contentReference[oaicite:4]{index=4}</li>
-                <li>Готовые API/SDK по стандарту OpenAI, поддержка LangChain/LangGraph и dedicated inference endpoints.:contentReference[oaicite:5]{index=5}</li>
-                <li>Слой безопасности: соответствие 152-ФЗ и ФСТЭК №21, on-prem-вариант,
-                    запись в Реестре отечественного ПО для объектов КИИ.:contentReference[oaicite:6]{index=6}</li>
-              </ul>
+                <ul class="list">
+                  <li>Единая enterprise-платформа: от моделей до цифровых агентов и готовых бизнес-приложений.</li>
+                  <li>Agent Atelier — среда разработки текстовых и голосовых агентов, поддержка Workflows,
+                      MCP Hub и Agent Tools для интеграций с системами Банка.</li>
+                  <li>AI Search / RAG-контур: загрузка и индексирование документов, гибридный поиск,
+                      парсеры сложных форматов.</li>
+                  <li>SpeechKit: STT/TTS, Brand Voice и Realtime API для голосовых агентов с низкой задержкой.</li>
+                  <li>Model Gallery: парк российских и OSS-моделей (YandexGPT 5.x, Qwen, Gemma и др.),
+                      дообучение через Tuning API (LoRA).</li>
+                  <li>Готовые API/SDK по стандарту OpenAI, поддержка LangChain/LangGraph и dedicated inference endpoints.</li>
+                  <li>Слой безопасности: соответствие 152-ФЗ и ФСТЭК №21, on-prem-вариант,
+                      запись в Реестре отечественного ПО для объектов КИИ.</li>
+                </ul>
             </div>
           </div>
         </div>
@@ -921,12 +1009,12 @@
             <div class="box-title">Готовность к промышленной эксплуатации</div>
             <div class="box-body">
               <ul class="list-tight">
-                <li>Платформа уже используется в прод-сценариях российских банков и крупных компаний
-                    для агентных решений в клиентском сервисе, back-office и рисках.:contentReference[oaicite:7]{index=7}</li>
-                <li>Базовая поставка включает полный стек инференса моделей, RAG/AI Search,
-                    инструменты агентов и модуль безопасности.:contentReference[oaicite:8]{index=8}</li>
-                <li>Сайзинг и лицензирование позволяют развернуть on-prem контур на 9 GPU
-                    (H100/A100) с поддержкой LLM, эмбеддингов, VLM и SpeechKit.:contentReference[oaicite:9]{index=9}</li>
+                  <li>Платформа уже используется в прод-сценариях российских банков и крупных компаний
+                      для агентных решений в клиентском сервисе, back-office и рисках.</li>
+                  <li>Базовая поставка включает полный стек инференса моделей, RAG/AI Search,
+                      инструменты агентов и модуль безопасности.</li>
+                  <li>Сайзинг и лицензирование позволяют развернуть on-prem контур на 9 GPU
+                      (H100/A100) с поддержкой LLM, эмбеддингов, VLM и SpeechKit.</li>
                 <li>Подходящая опция для МТС Банка как уже готовый промышленный контур
                     LLM/RAG/голоса и агентов в 2025–2027 с возможностью интеграции с MTS AI.</li>
               </ul>
@@ -1097,14 +1185,29 @@
         </div>
       </div>
 
-      <div class="spacer-vert"></div>
+        <div class="spacer-vert"></div>
 
-      <div class="diagram-placeholder">
-        Мини-схема: Клиентские каналы (сайт, мобильное приложение, мессенджеры) →
-        Just AI (чат/voice, сценарии, маршрутизация) →
-        Core AI (MTS AI + Yandex AI Studio, знания, агенты) →
-        Системы Банка (CRM, биллинг, риск-системы).
-      </div>
+        <div class="flow-row">
+          <div class="flow-box">
+            <div class="flow-box-title">Клиентские каналы</div>
+            Сайт, мобильное приложение, мессенджеры, голосовые линии.
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="flow-box-title">Just AI</div>
+            Чат/voice сценарии, маршрутизация, единый редактор и витрина навыков.
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="flow-box-title">Core AI</div>
+            MTS AI и партнёрские модели: LLM, RAG, агенты, база знаний.
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box">
+            <div class="flow-box-title">Системы Банка</div>
+            CRM, биллинг, риск-системы, контакт-центр, хранилища данных.
+          </div>
+        </div>
 
     </div>
     <div class="footer">
@@ -1293,15 +1396,36 @@
         </div>
       </div>
 
-      <div class="spacer-vert"></div>
+        <div class="spacer-vert"></div>
 
-      <div class="diagram-placeholder">
-        Схема-драма: тысячи звонков и диалогов в КЦ, Коллекшене и Рознице →
-        вручную анализируется только малая часть →
-        "слепые зоны" по качеству сервиса, продажам и рискам.
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Фактор</th>
+            <th>Сейчас</th>
+            <th>Последствия</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Охват</td>
+            <td>Выборочный аудит небольшой доли звонков/диалогов.</td>
+            <td>Слепые зоны по качеству сервиса, продажам и взысканию.</td>
+          </tr>
+          <tr>
+            <td>Скорость</td>
+            <td>Ручной разбор занимает недели, изменения в скриптах запаздывают.</td>
+            <td>Потеря эффекта от улучшений и высокий TCO контроля.</td>
+          </tr>
+          <tr>
+            <td>Данные для ИИ</td>
+            <td>Нет единого массива размеченных диалогов.</td>
+            <td>Сложно обучать ботов, co-pilot и скоринговые модели на реальных данных.</td>
+          </tr>
+          </tbody>
+        </table>
+
       </div>
-
-    </div>
     <div class="footer">
       <span>AI-трансформация МТС Банка</span>
       <span>15</span>
@@ -1355,11 +1479,22 @@
             </div>
           </div>
 
-          <div class="diagram-placeholder">
-            Схема: Каналы голоса (КЦ, Коллекшен, Розница) →
-            SpeechSense через МТТ (STT, NLP, метрики) →
-            отчёты по качеству + данные в Core AI и bot-платформу.
-          </div>
+            <div class="flow-row">
+              <div class="flow-box">
+                <div class="flow-box-title">Голосовые каналы</div>
+                КЦ, Коллекшен, Розница, аудиобейджи.
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="flow-box-title">SpeechSense через МТТ</div>
+                STT/TTS, NLP, разметка, метрики качества, хранение диалогов.
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="flow-box-title">Результат</div>
+                Отчёты по качеству, сигналы для ботов и co-pilot, датасеты для Core AI.
+              </div>
+            </div>
         </div>
       </div>
 
@@ -1671,53 +1806,26 @@
       <div class="slide-subtitle">
         Фиксация архитектуры, портфеля и ответственности
       </div>
-    </div>
-    <div class="slide-body">
-      <div class="columns">
-        <div class="column">
-          <div class="box">
-            <div class="box-title">Архитектура и платформы</div>
-            <div class="box-body">
-              <ul class="list-tight">
-                <li>Утвердить целевую архитектуру платформ:
-                  MTS AI, Yandex AI Studio (гибрид), Just AI, SpeechSense через МТТ,
-                  АТС как платформа Коллекшена до миграции голосовых сценариев в 2027.</li>
-                <li>Зафиксировать принцип гибрида Core AI:
-                  MTS AI как стратегическое ядро, Yandex AI Studio как промышленный ускоритель.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="box-title">Программа и портфель кейсов</div>
-            <div class="box-body">
-              <ul class="list-tight">
-                <li>Одобрить запуск единой программы AI Native МТС Банка по пяти блокам
-                    с первым скоупом кейсов (Опер блок, Коллекшен, Розница, Риски, HR Tech).</li>
-                <li>Подтвердить перечень базовых кейсов и рамку по экономике (XXX / YYY млн руб).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="box">
-            <div class="box-title">Дальнейшая детализация</div>
-            <div class="box-body">
-              <ul class="list-tight">
-                <li>Поручить детализацию экономики (инвестиции, TCO, эффекты)
-                    по шаблону карточек кейсов — по каждому ключевому направлению.</li>
-                <li>Поручить подготовку и защиту кейсов для блоков Риски и HR Tech
-                    с отдельным рассмотрением на УС.</li>
-                <li>Встроить целевые AI-эффекты в KPI и мотивацию руководителей
-                    соответствующих бизнес-блоков.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
+      <div class="slide-body">
+        <div class="box">
+          <div class="box-title">Протокол решения</div>
+          <div class="box-body">
+            <ul class="list">
+              <li><b>Архитектура и платформы:</b> утвердить целевой стек MTS AI, Yandex AI Studio (гибрид), Just AI, SpeechSense через МТТ и АТС (до миграции голосовых сценариев в 2027).</li>
+              <li><b>Программа и портфель:</b> одобрить запуск единой программы AI Native по пяти блокам и первый скоуп кейсов; подтвердить рамку по экономике (XXX / YYY млн руб).</li>
+              <li><b>Дальнейшая детализация:</b>
+                <ul class="list-tight">
+                  <li>Детализировать экономику (инвестиции, TCO, эффекты) по шаблонам карточек кейсов.</li>
+                  <li>Подготовить и защитить кейсы для блоков Риски и HR Tech отдельно.</li>
+                  <li>Встроить целевые AI-эффекты в KPI и мотивацию руководителей блоков.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-    </div>
+      </div>
     <div class="footer">
       <span>AI-трансформация МТС Банка</span>
       <span>21</span>
