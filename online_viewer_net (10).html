@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI-трансформация МТС Банка 2025–2027</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #000;
+    }
+
+    .deck {
+      width: 100%;
+      padding: 20px 0 60px;
+    }
+
+    .slide {
+      width: 1280px; /* 16:9 */
+      height: 720px;
+      margin: 20px auto;
+      background: #fff;
+      border: 2px solid #000;
+      padding: 32px 44px;
+      position: relative;
+      page-break-after: always;
+    }
+
+    .slide-header {
+      margin-bottom: 20px;
+    }
+
+    .slide-title {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .slide-subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    .slide-body {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .columns {
+      display: flex;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .column-2-1 .column:first-child {
+      flex: 2;
+    }
+
+    .column-2-1 .column:last-child {
+      flex: 1;
+    }
+
+    .box {
+      border: 1px solid #000;
+      padding: 10px 12px;
+    }
+
+    .box-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .box-body {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .list, .list-tight {
+      margin-top: 4px;
+      padding-left: 16px;
+    }
+
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .list-tight li {
+      margin-bottom: 2px;
+    }
+
+    .note {
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 18px;
+      left: 44px;
+      right: 44px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid #000;
+      padding: 4px 6px;
+      vertical-align: top;
+    }
+
+    .table th {
+      font-weight: 600;
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .spacer-vert {
+      height: 10px;
+    }
+
+    .diagram-placeholder {
+      border: 1px dashed #000;
+      padding: 10px;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Таймлайн для слайда 3 (упрощённый, без верх/низ) */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      margin: 6px 0 16px;
+      padding: 12px 8px 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: 16px;
+      right: 16px;
+      border-top: 1px solid #000;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 18%;
+      text-align: center;
+    }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      background: #fff;
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .timeline-text {
+      font-size: 11px;
+      border: 1px solid #000;
+      padding: 4px 5px;
+      margin-top: 16px;
+    }
+
+    /* Диаграмма "слои" для слайда 6 */
+    .layers-diagram {
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    .layers-box {
+      flex: 2;
+      border: 1px solid #000;
+      padding: 10px;
+      position: relative;
+      font-size: 12px;
+    }
+
+    .layers-layer {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      margin: 6px 0;
+    }
+
+    .layers-layer-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
+
+    .layers-layer-body {
+      font-size: 11px;
+    }
+
+    /* Маленькая диаграмма для MTS AI (слайд 7) */
+    .mini-diagram {
+      border: 1px solid #000;
+      padding: 8px 10px;
+      font-size: 11px;
+    }
+
+    .mini-diagram-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .mini-diagram-box {
+      flex: 1;
+      border: 1px solid #000;
+      padding: 4px 6px;
+    }
+
+    .mini-diagram-box-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* Визуал синергии (слайд 10) */
+    .venn-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .venn-col {
+      flex: 1;
+      border: 1px solid #000;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .venn-col-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- СЛАЙД 1. Титул -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Вводная</div>
+      <h1 class="slide-title">AI-трансформация МТС Банка 2025–2027</h1>
+      <div class="slide-subtitle">
+        Портфель кейсов, архитектура платформ и решения Управляющего совета
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="box">
+        <div class="box-title">Цель презентации</div>
+        <div class="box-body">
+          Показать, как МТС Банк может системно использовать ИИ и агентные решения
+          для получения экономических эффектов в 2026–2027 годах за счёт портфеля кейсов
+          и согласованной архитектуры платформ.
+        </div>
+      </div>
+
+      <div class="spacer-vert"></div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Контекст</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Во всех ключевых блоках Банка сформирован запрос на ИИ с экономическим эффектом.</li>
+                <li>В Группе разворачивается MTS AI как стратегическая AI/ML-платформа.</li>
+                <li>На рынке уже есть банки, которые получили существенный эффект от ИИ и агентных решений
+                    в операциях, взыскании и маркетинге — МТС Банку важно не отстать.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Что будет на следующих слайдах</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Вызов и окно возможностей для МТС Банка.</li>
+                <li>Портфель кейсов по бизнес-блокам и целевые эффекты (XXX / YYY млн руб).</li>
+                <li>Целевая архитектура Core AI и прикладных платформ (боты, речевая аналитика, агенты).</li>
+                <li>Экономическая рамка и управленческие решения на горизонте 2025–2027 гг.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>1</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 2. Вызов и окно возможностей -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Вводная</div>
+      <h2 class="slide-title">Вызов и окно возможностей</h2>
+      <div class="slide-subtitle">
+        Сформированный спрос на ИИ и целевой экономический эффект
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns column-2-1">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Сформированный спрос на ИИ</div>
+            <div class="box-body">
+              <ul class="list">
+                <li><b>Опер блок</b>: боты и агентные co-pilot’ы операторов, рост эффективности КЦ и цифровых каналов.</li>
+                <li><b>Коллекшен</b>: голосовой робот и контроль качества, рост собираемости.</li>
+                <li><b>Розница</b>: аудиобейджи и контроль стандартов сервиса в сети.</li>
+                <li><b>Риски, HR Tech</b>: запрос на улучшение процессов и обучение сотрудников в формате AI Native.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Текущая позиция по платформам</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>MTS AI развивается как стратегическая платформа группы, поэтапно наращивая стек LLM, RAG,
+                    голосовых технологий и аналитики.</li>
+                <li>Часть сценариев Банка требует промышленной готовности уже в 2026 году
+                    (агенты, co-pilot, речевая аналитика, голосовые интерфейсы).</li>
+                <li>Важно задать единую архитектуру Core AI и прикладных платформ, чтобы масштабировать эффекты
+                    по всем блокам, а не по отдельным проектам.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Амбиция и целевой эффект</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Сформировать единый портфель кейсов по блокам (Опер, Коллекшен, Розница, Риски, HR Tech).</li>
+                <li>Достичь к 2026–2027 годам суммарного экономического эффекта порядка
+                    <b>XXX млн руб</b> в 2026 и <b>YYY млн руб</b> в 2027.</li>
+                <li>Сделать ИИ и агентные решения частью стандартной операционной модели МТС Банка.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Наш подход</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>MTS AI — стратегическое ядро Core AI для Банка и Группы.</li>
+                <li>Гибридный контур на базе Яндекс AI Studio и SpeechSense для запусков в 2026–2027.</li>
+                <li>Стандартизированные платформы ботов и речевой аналитики — как основа для масштабирования
+                    агентов и кейсов по всем бизнес-блокам.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>2</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 3. Где мы сейчас -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Вводная</div>
+      <h2 class="slide-title">Где мы сейчас (конец 2025 года)</h2>
+      <div class="slide-subtitle">
+        Ключевые шаги 2025 года и стартовый набор кейсов
+      </div>
+    </div>
+    <div class="slide-body">
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            Весна 2025<br/>
+            Формирование программы AI Native и офиса трансформации.
+          </div>
+          <div class="timeline-date">Весна 2025</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            Июнь 2025<br/>
+            Старт открытого тендера на AI-трансформацию Банка.
+          </div>
+          <div class="timeline-date">Июн 2025</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            Август 2025<br/>
+            Определены ключевые партнёры: МТС ИИ и Яндекс.
+          </div>
+          <div class="timeline-date">Авг 2025</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            Сентябрь 2025<br/>
+            Запуск работ по развёртыванию MTS AI и заказ инфраструктуры.
+          </div>
+          <div class="timeline-date">Сен 2025</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            Декабрь 2025<br/>
+            Первые модели и ассистент (MTS co-type + Qwen) для сотрудников.
+          </div>
+          <div class="timeline-date">Дек 2025</div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Программа и управление</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Сформирована программа AI Native трансформации МТС Банка.</li>
+                <li>Определён контур офиса трансформации и роли ключевых стейкхолдеров.</li>
+                <li>Подготовлены базовые дорожки по обучению, KPI и мотивации по ИИ.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Портфель кейсов первого скоупа</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Next Best Transaction / маркетинг и персонализация.</li>
+                <li>Co-pilot колл-центра и чатов (агент для оператора).</li>
+                <li>Pre/Soft Collection и телемаркетинг (голосовой робот).</li>
+                <li>Речевая аналитика (SpeechSense) для КЦ, Коллекшена и Розницы.</li>
+                <li>DevX co-pilot для разработчиков и инженеров.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Технологическая база</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Инициирован проект по обновлению платформы текстовых ботов Just AI (LTS15).</li>
+                <li>Выбран SpeechSense Яндекса через МТТ как стандарт речевой аналитики.</li>
+                <li>Определены ключевые партнёры по Core AI: MTS AI и Яндекс AI Studio.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Ключевые стейкхолдеры программы</div>
+            <div class="box-body">
+              <!-- Пустые места под ФИО -->
+              <div class="box" style="margin-bottom:4px; height:32px;"></div>
+              <div class="box" style="margin-bottom:4px; height:32px;"></div>
+              <div class="box" style="margin-bottom:4px; height:32px;"></div>
+              <div class="box" style="height:32px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>3</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 4. Карта блоков (1/2) -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Бизнес-блоки</div>
+      <h2 class="slide-title">Карта инициатив по бизнес-блокам (1 из 2)</h2>
+      <div class="slide-subtitle">
+        Опер блок и Коллекшен: инициативы, функционал, ответственность
+      </div>
+    </div>
+    <div class="slide-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th style="width: 18%;">Бизнес-блок / инициатива</th>
+          <th style="width: 22%;">Техническое решение</th>
+          <th style="width: 26%;">Целевой функционал</th>
+          <th style="width: 14%;">Срок реализации</th>
+          <th>Ответственный / KPI / бюджет</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td rowspan="2"><b>Опер блок</b><br/>Боты и co-pilot</td>
+          <td>Just AI (LTS15) — платформа текстовых ботов</td>
+          <td>
+            <ul class="list-tight">
+              <li>Единая платформа чат-ботов по продуктам и сервису.</li>
+              <li>Готовность к подключению LLM-агентов и Core AI.</li>
+            </ul>
+          </td>
+          <td>2025–2026</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: XXX млн руб
+          </td>
+        </tr>
+        <tr>
+          <td>Core AI (MTS AI + Яндекс AI Studio)</td>
+          <td>
+            <ul class="list-tight">
+              <li>Co-pilot оператора (голос и текст).</li>
+              <li>Агентные подсказки и поиск по знаниям в режиме real-time.</li>
+            </ul>
+          </td>
+          <td>2026–2027</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: YYY млн руб
+          </td>
+        </tr>
+
+        <tr>
+          <td rowspan="2"><b>Коллекшен</b><br/>Взыскание и телемаркетинг</td>
+          <td>АТС — платформа голосового робота</td>
+          <td>
+            <ul class="list-tight">
+              <li>Голосовой робот Pre/Soft Collection.</li>
+              <li>Телемаркетинговые кампании.</li>
+            </ul>
+          </td>
+          <td>2025–2026</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: XXX млн руб
+          </td>
+        </tr>
+        <tr>
+          <td>Just AI (voice) + Core AI</td>
+          <td>
+            <ul class="list-tight">
+              <li>Миграция голосовых сценариев Коллекшена на единый стек чат+voice.</li>
+              <li>Подключение агентных сценариев и персонализации.</li>
+            </ul>
+          </td>
+          <td>2027+</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: [уточнить]
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>4</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 5. Карта блоков (2/2) -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Бизнес-блоки</div>
+      <h2 class="slide-title">Карта инициатив по бизнес-блокам (2 из 2)</h2>
+      <div class="slide-subtitle">
+        Розница, Риски, HR Tech: первый контур и дальнейшая проработка
+      </div>
+    </div>
+    <div class="slide-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th style="width: 18%;">Бизнес-блок / инициатива</th>
+          <th style="width: 22%;">Техническое решение</th>
+          <th style="width: 26%;">Целевой функционал</th>
+          <th style="width: 14%;">Срок реализации</th>
+          <th>Ответственный / KPI / бюджет</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><b>Розница (сеть)</b><br/>Контроль сервиса</td>
+          <td>SpeechSense через МТТ + аудиобейджи/микрофоны</td>
+          <td>
+            <ul class="list-tight">
+              <li>Оценка стандартов сервиса в отделениях.</li>
+              <li>Выявление точек роста продаж через качество коммуникаций.</li>
+            </ul>
+          </td>
+          <td>2026–2027</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: [уточнить]
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>Риски</b></td>
+          <td>[информация уточняется]</td>
+          <td>[информация уточняется]</td>
+          <td>2026–2027</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: [уточняется]
+          </td>
+        </tr>
+
+        <tr>
+          <td><b>HR Tech</b></td>
+          <td>[информация уточняется]</td>
+          <td>[информация уточняется]</td>
+          <td>2026–2027</td>
+          <td>
+            Отв.: [уточняется]<br/>
+            KPI: XXX / YYY<br/>
+            Бюджет: [уточняется]
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="spacer-vert"></div>
+      <div class="note">
+        Риски и HR Tech включаются в программу как отдельный эшелон работы; детальные кейсы и экономика будут проработаны дополнительно.
+      </div>
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>5</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 6. Целевой ландшафт платформ -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Архитектура</div>
+      <h2 class="slide-title">Целевой ландшафт платформ МТС Банка</h2>
+      <div class="slide-subtitle">
+        От бизнес-блоков и данных к платформам, агентам и кейсам
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="layers-diagram">
+        <div class="layers-box">
+          <div class="layers-layer">
+            <div class="layers-layer-title">Бизнес-блоки и процессы</div>
+            <div class="layers-layer-body">
+              Опер блок, Коллекшен, Розница, Риски, HR Tech, back-office.
+            </div>
+          </div>
+          <div class="layers-layer">
+            <div class="layers-layer-title">Данные и ИТ-инфраструктура Банка</div>
+            <div class="layers-layer-body">
+              CRM, биллинг, риск-системы, коллекшен-платформы, контакт-центр, хранилища данных, аналитика.
+            </div>
+          </div>
+          <div class="layers-layer">
+            <div class="layers-layer-title">Core AI и прикладные платформы</div>
+            <div class="layers-layer-body">
+              Core AI (MTS AI + Яндекс AI Studio), bot-платформы (Just AI, АТС), SpeechSense через МТТ и другие доменные решения.
+            </div>
+          </div>
+          <div class="layers-layer">
+            <div class="layers-layer-title">Кейсы и агентные решения</div>
+            <div class="layers-layer-body">
+              Co-pilot оператора, агенты взыскания, NBT-агенты, DevX-агенты, внутренние помощники и др.
+            </div>
+          </div>
+        </div>
+
+        <div class="column" style="flex:1;">
+          <div class="box">
+            <div class="box-title">Логика работы слоёв</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Бизнес-блоки формируют запросы и экономические цели.</li>
+                <li>Данные и ИТ дают фактическую основу для обучения и интеграций.</li>
+                <li>Платформы превращают данные в готовые агенты и сценарии.</li>
+                <li>Кейсы и решения возвращают эффект в P&amp;L каждого блока.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>6</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 7. MTS AI -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Core AI</div>
+      <h2 class="slide-title">MTS AI: стратегическое ядро группы</h2>
+      <div class="slide-subtitle">
+        Функциональность платформы и её место в гибридной модели
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Что даёт платформа MTS AI</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Единый AI-стек для Группы МТС с учётом требований к данным и безопасности.</li>
+                <li>Инференс текстовых и мультимодальных моделей, ML-модели для скоринга и аналитики.</li>
+                <li>Поддержка сценариев RAG и поиска по данным Группы.</li>
+                <li>Инфраструктура MLOps и управление пайплайнами моделей.</li>
+                <li>Интеграция с каналами (часть компонентов контакт-центра, голосовая инфраструктура и др.).</li>
+                <li>База для внутренней разработки специализированных моделей и агентов.</li>
+                <li>Встроенная интеграция с системами мониторинга и безопасности МТС.</li>
+                <li>Потенциал для постепенного переноса кейсов Банка в групповой AI-контур.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Позиция MTS AI в гибриде</div>
+            <div class="box-body">
+              <div class="mini-diagram">
+                <div class="mini-diagram-row">
+                  <div class="mini-diagram-box">
+                    <div class="mini-diagram-box-title">2025–2026</div>
+                    <div>
+                      MTS AI активно развивается и берёт на себя часть сценариев Банка.
+                      Для LLM-агентов и голоса используется гибрид с Яндекс AI Studio и SpeechSense.
+                    </div>
+                  </div>
+                  <div class="mini-diagram-box">
+                    <div class="mini-diagram-box-title">2027+</div>
+                    <div>
+                      По мере роста функционала MTS AI часть кейсов может мигрировать
+                      в групповой контур с сохранением гибкости по внешним партнёрам.
+                    </div>
+                  </div>
+                </div>
+                <div class="spacer-vert"></div>
+                <div class="mini-diagram-box">
+                  <div class="mini-diagram-box-title">Для МТС Банка</div>
+                  <div>
+                    Стратегический фокус на MTS AI сохраняется. Гибрид с Яндекс AI Studio —
+                    это дополнение и перестраховка на горизонте 2025–2027, а не отказ от своей платформы.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>7</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 8. MTS AI: архитектура / роадмап -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Core AI</div>
+      <h2 class="slide-title">MTS AI: архитектура и развитие компонентов</h2>
+      <div class="slide-subtitle">
+        Ключевые модули платформы и их готовность
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="diagram-placeholder">
+            По мотивам архитектурной схемы: Surfaces → Channels → Voice Processing →
+            NLP/LLM → Integration &amp; Analytics. Выделены готовые модули и модули в разработке,
+            формирующие агентную платформу MTS AI.
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Готовые компоненты (базовый контур)</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Agent Platform Gateway и адаптеры каналов (чат, voice).</li>
+                <li>Model Registry и MLOps-инфраструктура.</li>
+                <li>Runtime Engine для сценариев и агентов.</li>
+                <li>NLP-инференс (классификаторы, NER, OCR, эмбеддинги).</li>
+                <li>Integration Hub и API-Gateway для подключения систем Банка.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Компоненты в промышленной разработке / Q2</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>TTS и ASR для голоса на единой платформе.</li>
+                <li>LLM-inference и Retrieval-Augmented Generation.</li>
+                <li>Domain Knowledge Management и Platform Datahub.</li>
+                <li>Маркетплейс сценариев и агентов, визуальные средства моделирования.</li>
+              </ul>
+              <div class="note">
+                Эти модули планируются к промышленной готовности на горизонте Q2–Q4,
+                усиливая роль MTS AI как целевого ядра Core AI.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>8</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 9. Yandex AI Studio -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Core AI</div>
+      <h2 class="slide-title">Yandex AI Studio: гибридный промышленный контур</h2>
+      <div class="slide-subtitle">
+        Платформа для создания ИИ-решений и агентов полного цикла
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Ключевые возможности платформы</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Единая enterprise-платформа: от моделей до цифровых агентов и готовых бизнес-приложений.:contentReference[oaicite:0]{index=0}</li>
+                <li>Agent Atelier — среда разработки текстовых и голосовых агентов, поддержка Workflows,
+                    MCP Hub и Agent Tools для интеграций с системами Банка.:contentReference[oaicite:1]{index=1}</li>
+                <li>AI Search / RAG-контур: загрузка и индексирование документов, гибридный поиск,
+                    парсеры сложных форматов.:contentReference[oaicite:2]{index=2}</li>
+                <li>SpeechKit: STT/TTS, Brand Voice и Realtime API для голосовых агентов с низкой задержкой.:contentReference[oaicite:3]{index=3}</li>
+                <li>Model Gallery: парк российских и OSS-моделей (YandexGPT 5.x, Qwen, Gemma и др.),
+                    дообучение через Tuning API (LoRA).:contentReference[oaicite:4]{index=4}</li>
+                <li>Готовые API/SDK по стандарту OpenAI, поддержка LangChain/LangGraph и dedicated inference endpoints.:contentReference[oaicite:5]{index=5}</li>
+                <li>Слой безопасности: соответствие 152-ФЗ и ФСТЭК №21, on-prem-вариант,
+                    запись в Реестре отечественного ПО для объектов КИИ.:contentReference[oaicite:6]{index=6}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Готовность к промышленной эксплуатации</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Платформа уже используется в прод-сценариях российских банков и крупных компаний
+                    для агентных решений в клиентском сервисе, back-office и рисках.:contentReference[oaicite:7]{index=7}</li>
+                <li>Базовая поставка включает полный стек инференса моделей, RAG/AI Search,
+                    инструменты агентов и модуль безопасности.:contentReference[oaicite:8]{index=8}</li>
+                <li>Сайзинг и лицензирование позволяют развернуть on-prem контур на 9 GPU
+                    (H100/A100) с поддержкой LLM, эмбеддингов, VLM и SpeechKit.:contentReference[oaicite:9]{index=9}</li>
+                <li>Подходящая опция для МТС Банка как уже готовый промышленный контур
+                    LLM/RAG/голоса и агентов в 2025–2027 с возможностью интеграции с MTS AI.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>9</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 10. Гибридная модель -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Core AI</div>
+      <h2 class="slide-title">Гибридная модель: MTS AI и Yandex AI Studio</h2>
+      <div class="slide-subtitle">
+        Почему МТС Банку нужны две платформы одновременно
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="venn-row">
+        <div class="venn-col">
+          <div class="venn-col-title">MTS AI</div>
+          <ul class="list-tight">
+            <li>Стратегическое ядро группы и долгосрочная платформа для Банка.</li>
+            <li>Глубокая интеграция с экосистемой МТС и внутренними процессами.</li>
+            <li>База для собственных моделей, специфичных для Группы.</li>
+          </ul>
+        </div>
+        <div class="venn-col">
+          <div class="venn-col-title">Гибридный контур</div>
+          <ul class="list-tight">
+            <li>Общий слой Core AI, объединяющий MTS AI и Yandex AI Studio.</li>
+            <li>Единые принципы безопасности, интеграций и мониторинга.</li>
+            <li>Кейсы Банка (агенты, co-pilot, NBT, DevX) подключаются к этому слою,
+                а не напрямую к отдельным технологиям.</li>
+          </ul>
+        </div>
+        <div class="venn-col">
+          <div class="venn-col-title">Yandex AI Studio</div>
+          <ul class="list-tight">
+            <li>Уже готовый промышленный контур LLM/RAG/голоса и цифровых агентов.</li>
+            <li>Проверенная платформа с on-prem-вариантом для строгих регуляторных требований.</li>
+            <li>Позволяет МТС Банку запускать ключевые кейсы уже с 2026 года,
+                не дожидаясь полного набора функций MTS AI.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spacer-vert"></div>
+
+      <div class="box">
+        <div class="box-title">Ключевая мысль для Управляющего совета</div>
+        <div class="box-body">
+          Для МТС Банка гибрид — это не конкуренция платформ, а сочетание:
+          <b>MTS AI</b> остаётся стратегическим ядром группы, а <b>Yandex AI Studio</b>
+          выступает как промышленный ускоритель и перестраховка на горизонте 2025–2027.
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>10</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 11. Управленческое сравнение -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Core AI</div>
+      <h2 class="slide-title">MTS AI и Yandex AI Studio: управленческое сравнение</h2>
+      <div class="slide-subtitle">
+        Роли платформ в общей архитектуре МТС Банка
+      </div>
+    </div>
+    <div class="slide-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Критерий</th>
+          <th>MTS AI</th>
+          <th>Yandex AI Studio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Роль для МТС Банка</td>
+          <td>Стратегическое ядро Core AI, платформа группы.</td>
+          <td>Гибридный промышленный контур для LLM/RAG/голоса и агентов в 2025–2027.</td>
+        </tr>
+        <tr>
+          <td>Запуск кейсов 2026–2027</td>
+          <td>Реализация сценариев по мере появления необходимых компонентов.</td>
+          <td>Ускоренный запуск ключевых кейсов (co-pilot, NBT, DevX, голосовые агенты).</td>
+        </tr>
+        <tr>
+          <td>Контроль и суверенность</td>
+          <td>Максимальное выравнивание с групповой стратегией и внутренними стандартами.</td>
+          <td>On-prem-развёртывание, включение в реестр отечественного ПО, поддержка КИИ.</td>
+        </tr>
+        <tr>
+          <td>Стратегическая перспектива</td>
+          <td>Целевая платформа для миграции части зрелых сценариев и развития группового AI-стека.</td>
+          <td>Партнёрский контур, дополняющий MTS AI и ускоряющий эффекты на горизонте 2025–2027.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>11</span>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 4. BOT-ПЛАТФОРМЫ ===== -->
+
+  <!-- СЛАЙД 12. Текущая ситуация с ботами и Just AI -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Bot-платформы</div>
+      <h2 class="slide-title">Текущая ситуация с ботами и целевая роль Just AI</h2>
+      <div class="slide-subtitle">
+        Единая платформа для текстовых и будущих голосовых сценариев Опер блока
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Проблема</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Разные реализации ботов по каналам и продуктам, разный уровень зрелости.</li>
+                <li>Ограничения по качеству диалогов и скорости внесения изменений.</li>
+                <li>Сложно подключать LLM и агенты, пока нет единой платформы.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Решение</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Just AI как основная бот-платформа для текстовых ботов Опер блока.</li>
+                <li>Обновление до LTS15 с поддержкой современных диалоговых возможностей.</li>
+                <li>Подготовка к дальнейшему запуску голосовых сценариев на том же стеке.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Связка с Core AI</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Just AI — фронт (чат/voice), управление сценариями и каналами.</li>
+                <li>MTS AI + Yandex AI Studio — "мозги" и знания: LLM, RAG, агенты.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-vert"></div>
+
+      <div class="diagram-placeholder">
+        Мини-схема: Клиентские каналы (сайт, мобильное приложение, мессенджеры) →
+        Just AI (чат/voice, сценарии, маршрутизация) →
+        Core AI (MTS AI + Yandex AI Studio, знания, агенты) →
+        Системы Банка (CRM, биллинг, риск-системы).
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>12</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 13. Голосовые боты: АТС и переход к Just AI -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Bot-платформы</div>
+      <h2 class="slide-title">Голосовые боты: АТС и переход к Just AI</h2>
+      <div class="slide-subtitle">
+        Быстрый эффект в Коллекшене и консолидация стека к 2027 году
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Сейчас</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Платформа АТС используется для голосового робота Pre/Soft Collection.</li>
+                <li>На АТС также строятся кампании телемаркетинга.</li>
+                <li>Даёт быстрый измеримый эффект в блоке Коллекшен (собираемость, стоимость контакта).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">До 2027 года</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>АТС остаётся специализированной платформой для задач Коллекшена.</li>
+                <li>Интеграция с Core AI и SpeechSense для улучшения сценариев и контроля качества.</li>
+                <li>Параллельно готовится Just AI к приёму голосовых сценариев.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">После 2027 года</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Плановый переход голосовых сценариев Коллекшена на Just AI.</li>
+                <li>Единый стек чат+voice для Опер блока и Коллекшена.</li>
+                <li>Упрощение сопровождения и развитие агентных сценариев на общей платформе.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Эффект для Банка</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Быстрый старт и эффект по взысканию уже сейчас за счёт АТС.</li>
+                <li>Консолидация стека и снижение TCO в среднесрочной перспективе.</li>
+                <li>Возможность развивать единые голосовые агенты на базе Core AI.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>13</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 14. Бот-платформа: что станет возможным -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Bot-платформы</div>
+      <h2 class="slide-title">Бот-платформа: что станет возможным</h2>
+      <div class="slide-subtitle">
+        Набор кейсов для клиентов, операторов и внутренних пользователей
+      </div>
+    </div>
+    <div class="slide-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Кому</th>
+          <th>Тип бота / агента</th>
+          <th>Примеры сценариев</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Клиентам</td>
+          <td>LLM-боты в чатах и мессенджерах</td>
+          <td>
+            <ul class="list-tight">
+              <li>Консультации по продуктам и операциям 24/7.</li>
+              <li>Подбор и оформление типовых услуг и продуктов.</li>
+              <li>Подсказки и сопровождение в цифровых каналах.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Операторам КЦ и бэк-офиса</td>
+          <td>Боты и агенты-подсказчики</td>
+          <td>
+            <ul class="list-tight">
+              <li>Подсказки по скриптам и следующему шагу разговора.</li>
+              <li>Быстрый поиск по базе знаний и системам Банка.</li>
+              <li>Навигатор по процессам и регламентам.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Клиентам и должникам по телефону</td>
+          <td>Голосовые роботы</td>
+          <td>
+            <ul class="list-tight">
+              <li>Голосовые сценарии в КЦ и отделениях.</li>
+              <li>Pre/Soft Collection и голосовой телемаркетинг.</li>
+              <li>Информирование о статусе заявок, напоминания, уточнения данных.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Командам бизнеса и ИТ</td>
+          <td>Единый контур управления сценариями</td>
+          <td>
+            <ul class="list-tight">
+              <li>Разработка и изменение сценариев в одном месте.</li>
+              <li>Сокращение time-to-market изменений в ботах и агентах.</li>
+              <li>Повторное использование компонентов между блоками.</li>
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>14</span>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 5. РЕЧЕВАЯ АНАЛИТИКА SPEECHSENSE ===== -->
+
+  <!-- СЛАЙД 15. Текущий контроль качества: проблема -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Речевая аналитика</div>
+      <h2 class="slide-title">Текущий контроль качества: проблема</h2>
+      <div class="slide-subtitle">
+        Ручной аудит не масштабируется на объёмы КЦ, Коллекшена и Розницы
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Как происходит сейчас</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>Ручной и выборочный аудит звонков и диалогов.</li>
+                <li>Анализ только небольшой доли коммуникаций.</li>
+                <li>Часто — разрозненная аналитика по блокам и системам.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">К чему это приводит</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Пропуск большого количества инцидентов и возможностей для улучшения.</li>
+                <li>Высокая стоимость контроля качества на больших объёмах.</li>
+                <li>Сложно понять реальное качество сервиса и влияние скриптов на продажи и взыскание.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-vert"></div>
+
+      <div class="diagram-placeholder">
+        Схема-драма: тысячи звонков и диалогов в КЦ, Коллекшене и Рознице →
+        вручную анализируется только малая часть →
+        "слепые зоны" по качеству сервиса, продажам и рискам.
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>15</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 16. SpeechSense через МТТ: архитектура и роль -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Речевая аналитика</div>
+      <h2 class="slide-title">SpeechSense через МТТ: архитектура и роль</h2>
+      <div class="slide-subtitle">
+        Единый стандарт речевой аналитики для МТС Банка
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Решение</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>SpeechSense Яндекса как стандарт речевой аналитики Банка.</li>
+                <li>Закупка и эксплуатация через МТТ по действующему контракту.</li>
+                <li>Использование уже развернутой инфраструктуры в ПАО МТС.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Охват по блокам</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Опер блок: звонки КЦ и диалоги с клиентами.</li>
+                <li>Коллекшен: звонки по взысканию и телемаркетинг.</li>
+                <li>Розница: аудиобейджи и микрофоны в отделениях.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Роль в общей архитектуре</div>
+            <div class="box-body">
+              <ul class="list">
+                <li>100 % аудита вместо выборочного — расшифровка и разметка всех коммуникаций.</li>
+                <li>База данных для обучения и улучшения ботов, co-pilot и скоринговых моделей.</li>
+                <li>Источники сигналов для Core AI, NBT и других агентных решений.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="diagram-placeholder">
+            Схема: Каналы голоса (КЦ, Коллекшен, Розница) →
+            SpeechSense через МТТ (STT, NLP, метрики) →
+            отчёты по качеству + данные в Core AI и bot-платформу.
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>16</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 17. Кейсы и эффекты на базе речевой аналитики -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Речевая аналитика</div>
+      <h2 class="slide-title">Кейсы и эффекты на базе речевой аналитики</h2>
+      <div class="slide-subtitle">
+        От контроля качества к улучшению скриптов, продаж и взыскания
+      </div>
+    </div>
+    <div class="slide-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Тип кейса</th>
+          <th>Содержание</th>
+          <th>Потенциальные эффекты</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Контроль скриптов и стандартов сервиса</td>
+          <td>
+            <ul class="list-tight">
+              <li>Проверка соблюдения скриптов и регламентов.</li>
+              <li>Оценка качества приветствия, выявления потребностей, закрытия возражений.</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="list-tight">
+              <li>Рост качества обслуживания и удовлетворённости клиентов.</li>
+              <li>Снижение жалоб и повторных обращений.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Аналитика отказов, жалоб и потерь продаж</td>
+          <td>
+            <ul class="list-tight">
+              <li>Выявление причин отказов и прерываний диалогов.</li>
+              <li>Поиск паттернов, где клиенты уходят без покупки.</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="list-tight">
+              <li>Рост конверсии в продажи.</li>
+              <li>Оптимизация предложений и аргументации.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Подсказки для агентов и NBT</td>
+          <td>
+            <ul class="list-tight">
+              <li>Использование данных RA в Core AI и bot-платформе.</li>
+              <li>Настройка NBT, co-pilot и риск-моделей на основе реальных диалогов.</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="list-tight">
+              <li>Рост продаж и собираемости.</li>
+              <li>Снижение рисков комплаенса и регуляторных инцидентов.</li>
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>17</span>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 6. ЭКОНОМИКА И ДОРОЖНАЯ КАРТА ===== -->
+
+  <!-- СЛАЙД 18. Шаблон карточки кейса -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Экономика</div>
+      <h2 class="slide-title">Экономика портфеля: шаблон карточки кейса</h2>
+      <div class="slide-subtitle">
+        Единый формат описания инвестиций и эффектов
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="box">
+        <div class="box-title">Заголовок карточки</div>
+        <div class="box-body">
+          <b>Кейс:</b> ____________________________ &nbsp;&nbsp;
+          <b>Блок:</b> ____________________________
+          <div class="note">
+            Пример: «Голосовой робот Pre/Soft Collection / Блок: Коллекшен».
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-vert"></div>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th style="width: 30%;">Параметр</th>
+          <th>Значение / комментарий</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Цель кейса</td>
+          <td>(какую метрику двигаем, тип эффекта: экономия, доход, риск, качество)</td>
+        </tr>
+        <tr>
+          <td>Объём / охват</td>
+          <td>(количество звонков, клиентов, точек, операторов и т.п.)</td>
+        </tr>
+        <tr>
+          <td>Инвестиции 2025</td>
+          <td>CAPEX / OPEX (если есть), [уточнить]</td>
+        </tr>
+        <tr>
+          <td>Инвестиции 2026</td>
+          <td>CAPEX / OPEX, [уточнить]</td>
+        </tr>
+        <tr>
+          <td>Ожидаемый эффект 2026</td>
+          <td>руб / ключевые метрики, [уточнить]</td>
+        </tr>
+        <tr>
+          <td>Ожидаемый эффект 2027</td>
+          <td>руб / ключевые метрики, [уточнить]</td>
+        </tr>
+        <tr>
+          <td>Зрелость оценки</td>
+          <td>черновая / пилот / подтверждённая</td>
+        </tr>
+        <tr>
+          <td>Владелец кейса</td>
+          <td>ФИО / блок</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="spacer-vert"></div>
+      <div class="note">
+        Все кейсы описываются по одному шаблону, после чего агрегируются в портфель.
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>18</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 19. Экономика портфеля (агрегированная рамка) -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Экономика</div>
+      <h2 class="slide-title">Экономика портфеля кейсов</h2>
+      <div class="slide-subtitle">
+        Инвестиции и эффекты по основным направлениям (рамка)
+      </div>
+    </div>
+    <div class="slide-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Кейс</th>
+          <th>Блок</th>
+          <th>Инвестиции 2025–2026</th>
+          <th>Эффект 2026–2027</th>
+          <th>Статус оценки</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Next Best Transaction / маркетинг</td>
+          <td>Маркетинг / Опер блок</td>
+          <td>[информация требует уточнения]</td>
+          <td>[информация требует уточнения]</td>
+          <td>черновая</td>
+        </tr>
+        <tr>
+          <td>Co-pilot КЦ и чатов</td>
+          <td>Опер блок</td>
+          <td>[информация требует уточнения]</td>
+          <td>[информация требует уточнения]</td>
+          <td>черновая</td>
+        </tr>
+        <tr>
+          <td>Pre/Soft Collection</td>
+          <td>Коллекшен</td>
+          <td>[информация требует уточнения]</td>
+          <td>[информация требует уточнения]</td>
+          <td>черновая</td>
+        </tr>
+        <tr>
+          <td>Телемаркетинг</td>
+          <td>Коллекшен / Опер блок</td>
+          <td>[информация требует уточнения]</td>
+          <td>[информация требует уточнения]</td>
+          <td>черновая</td>
+        </tr>
+        <tr>
+          <td>DevX co-pilot</td>
+          <td>ИТ / Разработка</td>
+          <td>[информация требует уточнения]</td>
+          <td>[информация требует уточнения]</td>
+          <td>черновая</td>
+        </tr>
+        <tr>
+          <td>Речевая аналитика</td>
+          <td>Опер блок / Коллекшен / Розница</td>
+          <td>[информация требует уточнения]</td>
+          <td>[информация требует уточнения]</td>
+          <td>черновая</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="spacer-vert"></div>
+      <div class="note">
+        Конкретные цифры по инвестициям и эффектам будут уточнены совместно с блоками и зафиксированы в отдельных карточках кейсов.
+      </div>
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>19</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 20. Роадмап 2025–2027 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Роадмап</div>
+      <h2 class="slide-title">Роадмап AI Native трансформации 2025–2027</h2>
+      <div class="slide-subtitle">
+        Ключевые вехи по платформам и кейсам
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">2025</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Утверждение программы и базовой архитектуры.</li>
+                <li>Выбор партнёров MTS AI и Yandex AI Studio.</li>
+                <li>Старт обновления Just AI (LTS15).</li>
+                <li>Выбор SpeechSense через МТТ как стандарта речевой аналитики.</li>
+                <li>Запуск первого ассистента для сотрудников (MTS co-type + Qwen).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">2026</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Развёртывание гибридного контура Core AI (MTS AI + Yandex AI Studio).</li>
+                <li>Запуск ключевых кейсов в Prod: co-pilot, NBT, Pre/Soft Collection, телемаркетинг.</li>
+                <li>Внедрение речевой аналитики SpeechSense в КЦ, Коллекшене и Рознице.</li>
+                <li>Первые подтверждённые эффекты по P&amp;L блоков.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">2027</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Миграция голосовых сценариев Коллекшена на Just AI (единый стек чат+voice).</li>
+                <li>Расширение портфеля кейсов по Рискам и HR Tech.</li>
+                <li>Масштабирование агентных решений и эффектов по всем блокам.</li>
+                <li>Корректировка архитектуры с учётом зрелости MTS AI и партнёрских платформ.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>20</span>
+    </div>
+  </section>
+
+  <!-- СЛАЙД 21. Предлагаемые решения Управляющего совета -->
+  <section class="slide">
+    <div class="slide-header">
+      <div class="section-label">Решения УС</div>
+      <h2 class="slide-title">Предлагаемые решения Управляющего совета</h2>
+      <div class="slide-subtitle">
+        Фиксация архитектуры, портфеля и ответственности
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Архитектура и платформы</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Утвердить целевую архитектуру платформ:
+                  MTS AI, Yandex AI Studio (гибрид), Just AI, SpeechSense через МТТ,
+                  АТС как платформа Коллекшена до миграции голосовых сценариев в 2027.</li>
+                <li>Зафиксировать принцип гибрида Core AI:
+                  MTS AI как стратегическое ядро, Yandex AI Studio как промышленный ускоритель.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Программа и портфель кейсов</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Одобрить запуск единой программы AI Native МТС Банка по пяти блокам
+                    с первым скоупом кейсов (Опер блок, Коллекшен, Розница, Риски, HR Tech).</li>
+                <li>Подтвердить перечень базовых кейсов и рамку по экономике (XXX / YYY млн руб).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box">
+            <div class="box-title">Дальнейшая детализация</div>
+            <div class="box-body">
+              <ul class="list-tight">
+                <li>Поручить детализацию экономики (инвестиции, TCO, эффекты)
+                    по шаблону карточек кейсов — по каждому ключевому направлению.</li>
+                <li>Поручить подготовку и защиту кейсов для блоков Риски и HR Tech
+                    с отдельным рассмотрением на УС.</li>
+                <li>Встроить целевые AI-эффекты в KPI и мотивацию руководителей
+                    соответствующих бизнес-блоков.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span>AI-трансформация МТС Банка</span>
+      <span>21</span>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
